@@ -6,7 +6,7 @@ export const Container = styled.div`
   margin-bottom: 2rem;
 
   span {
-    font: 600 var(--counter-font-size) 'Rajdhani', sans-serif;
+    font: 600 var(--counter-font-size) "Rajdhani", sans-serif;
     color: var(--title-clr);
     user-select: none;
   }
@@ -34,24 +34,57 @@ export const Container = styled.div`
       font-size: var(--counter-font-size-alt);
     }
   }
-`
+`;
 
-export const Button = styled.button`
+export const InitialBtn = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 8px;
   width: 100%;
   padding: 1.75rem 0 1.6875rem;
-  background-color: var(--blue-clr);
-  color: var(--neutral-clr);
   border: none;
   border-radius: 5px;
   font-size: var(--big-font-size);
   font-weight: 600;
-  transition: background-color 280ms ease-in-out;
+  transition: background-color 280ms ease-in-out, color 280ms ease-in;
+
+  &.initial-button {
+    background-color: var(--blue-clr);
+    color: var(--neutral-clr);
+
+    &:hover {
+      background-color: var(--dark-blue-clr);
+    }
+  }
+`;
+
+export const AbandonBtn = styled(InitialBtn)`
+  background-color: var(--neutral-clr);
+  color: var(--text-clr);
+  gap: 16px;
 
   &:hover {
-    background-color: var(--dark-blue-clr);
+    background-color: var(--red-clr);
+
+    color: var(--neutral-clr);
+
+    .end-button-icon {
+      color: var(--neutral-clr);
+    }
   }
+
+  .end-button-icon {
+    transform: translateY(0.5px);
+    color: var(--text-clr);
+    transition: color 280ms ease-in;
+  }
+`;
+
+export const EndBtn = styled(InitialBtn)`
+  background-color: var(--neutral-clr);
+  color: var(--text-clr);
+  border-bottom: 4px solid var(--green-clr);
+  gap: 16px;
+  cursor: not-allowed;
 `

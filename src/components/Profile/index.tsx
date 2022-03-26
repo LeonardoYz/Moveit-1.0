@@ -9,8 +9,6 @@ export function Profile() {
         <Image
           src="/assets/images/profile.jpg" 
           alt="Leonardo Yzquierdo" 
-          width={88}
-          height={88}
           quality={100}
           layout="fill"
         />

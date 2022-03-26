@@ -18,8 +18,8 @@ export const GlobalStyle = createGlobalStyle`
     --light-gray: hsl(220, 4%, 85%);
 
     /*======== Font Size ========*/
-    --counter-font-size: 7.5rem;
-    --counter-font-size-alt: 6.5rem;
+    --counter-font-size: 7.5rem; //120px
+    --counter-font-size-alt: 6.5rem; // 104px
     --bigger-font-size: 1.5rem; // 24px
     --big-font-size: 1.25rem; // 20px
     --normal-font-size: 1rem; // 16px
