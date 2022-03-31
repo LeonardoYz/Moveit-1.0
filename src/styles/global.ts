@@ -9,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
     --green-clr: hsl(108, 68%, 50%);
     --blue-clr: hsl(235, 69%, 61%);
     --dark-blue-clr: hsl(235, 44%, 50%);
-    --blue-twitter: hsl(198, 75%, 52%);
+    --light-blue-clr: hsl(198, 75%, 52%);
 
     --neutral-clr: hsl(0, 0%, 100%);
     --bg-clr: hsl(220, 13%, 95%);
@@ -20,6 +20,7 @@ export const GlobalStyle = createGlobalStyle`
     /*======== Font Size ========*/
     --counter-font-size: 7.5rem; //120px
     --counter-font-size-alt: 6.5rem; // 104px
+    --h2-font-size: 1.875rem; // 30px
     --bigger-font-size: 1.5rem; // 24px
     --big-font-size: 1.25rem; // 20px
     --normal-font-size: 1rem; // 16px

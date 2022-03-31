@@ -1,21 +1,22 @@
-import Image from "next/image"
-import { useEffect, useState } from "react";
+import Image from "next/image";
+import { useContext } from "react";
 import { IconContext } from "@react-icons/all-files";
+import { CountdownContext } from "../../context/CountdownContext";
 
 import { BsFillPlayFill } from "@react-icons/all-files/bs/BsFillPlayFill";
 import { CgClose } from "@react-icons/all-files/cg/CgClose";
 
 import { Container, AbandonBtn, InitialBtn, EndBtn } from "./styles";
 
-let countdownTimeout: NodeJS.Timeout
-
 export function Countdown() {
-  const [time, setTime] = useState(25 * 60);
-  const [isActive, setIsActive] = useState(false)
-  const [hasFinished, setHasFinished] = useState(false)
-
-  const minutes = Math.floor(time / 60);
-  const seconds = time % 60;
+  const {
+    minutes,
+    seconds,
+    hasFinished,
+    isActive,
+    resetCountdown,
+    handleStartCountdown,
+  } = useContext(CountdownContext);
 
   const [firstCharacterOfMinute, secondCharacterOfMinute] = String(minutes)
     .padStart(2, "0")
@@ -24,23 +25,6 @@ export function Countdown() {
     .padStart(2, "0")
     .split("");
 
-  useEffect(() => {
-    if (isActive && time > 0) {
-      countdownTimeout = setTimeout(() => {
-        setTime(time - 1)
-      }, 1000)
-    } else if (isActive && time === 0) {
-      setHasFinished(true)
-      setIsActive(false)
-    }
-  }, [isActive, time])
-
-  function resetCountdown() {
-    setIsActive(false)
-    clearTimeout(countdownTimeout)
-    setTime(25 * 60)
-  }
-  
   return (
     <>
       <Container>
@@ -57,12 +41,10 @@ export function Countdown() {
         </div>
       </Container>
       {hasFinished ? (
-        <EndBtn
-          type="button"
-        >
+        <EndBtn type="button">
           Ciclo encerrado
-          <Image 
-            src="/assets/icons/check-circle.svg" 
+          <Image
+            src="/assets/icons/check-circle.svg"
             alt="Check circle"
             width={20}
             height={20}
@@ -71,20 +53,18 @@ export function Countdown() {
       ) : (
         <>
           {isActive ? (
-            <AbandonBtn 
-              type="button"
-              onClick={resetCountdown}
-            >
+            <AbandonBtn type="button" onClick={resetCountdown}>
               Abandonar ciclo
-    
-              <IconContext.Provider value={{ size: "22", className: "end-button-icon" }}>
+              <IconContext.Provider
+                value={{ size: "22", className: "end-button-icon" }}
+              >
                 <CgClose />
               </IconContext.Provider>
             </AbandonBtn>
           ) : (
             <InitialBtn
               type="button"
-              onClick={() => setIsActive(true)}
+              onClick={handleStartCountdown}
               className="initial-button"
             >
               Iniciar um ciclo
@@ -93,7 +73,6 @@ export function Countdown() {
           )}
         </>
       )}
-      
     </>
   );
 }

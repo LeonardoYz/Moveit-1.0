@@ -1,8 +1,12 @@
 import Image from "next/image"
+import { useContext } from "react";
+import { ChallengesContext } from "../../context/ChallengesContext";
 
 import { Container } from "./styles";
 
 export function Profile() {
+  const { level } = useContext(ChallengesContext);
+
   return (
     <Container>
       <div className="profile__image">
@@ -25,7 +29,7 @@ export function Profile() {
             width={14}
             height={16}
           />
-          <span>Level 1</span> 
+          <span>Level {level}</span> 
         </div>
       </div>
     </Container>
