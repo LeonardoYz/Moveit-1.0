@@ -11,7 +11,7 @@ export const LevelUpModalStyles = createGlobalStyle`
       position: fixed;
       inset: 0;
       opacity: 0;
-      background-color: hsl(220, 13%, 95%, 0.7);
+      background-color: hsl(220, 13%, 95%, 0.8);
       transform: translateY(-20px);
       transition: opacity 300ms ease-out, transform 300ms ease-in;
     }
@@ -36,6 +36,7 @@ export const LevelUpModalStyles = createGlobalStyle`
         right: 1.25rem;
         border: none;
         background-color: transparent;
+        font-size: 0px;
       }
 
       &--icon {
