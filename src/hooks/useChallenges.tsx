@@ -1,4 +1,10 @@
-import { createContext, ReactNode, useEffect, useState } from "react";
+import { 
+  createContext, 
+  ReactNode, 
+  useContext, 
+  useEffect, 
+  useState 
+} from "react";
 import Cookies from "js-cookie";
 import challenges from "../../challenges.json";
 import { HomeProps } from "../types";
@@ -26,7 +32,7 @@ interface ChallengesProviderProps extends HomeProps {
   onOpenLevelUpModal: () => void;
 }
 
-export const ChallengesContext = createContext({} as ChallengesContextData);
+const ChallengesContext = createContext({} as ChallengesContextData);
 
 export function ChallengesProvider({
   children,
@@ -114,4 +120,10 @@ export function ChallengesProvider({
       {children}
     </ChallengesContext.Provider>
   );
+}
+
+export function useChallenges() {
+  const context = useContext(ChallengesContext)
+
+  return context
 }

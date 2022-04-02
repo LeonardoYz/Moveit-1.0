@@ -1,8 +1,7 @@
 import Modal from "react-modal"
 import { IconContext } from "@react-icons/all-files"
 
-import { useContext } from "react";
-import { ChallengesContext } from "../../context/ChallengesContext";
+import { useChallenges } from "../../hooks/useChallenges";
 
 import { CgClose } from "@react-icons/all-files/cg/CgClose"
 import { IoLogoTwitter } from "@react-icons/all-files/io/IoLogoTwitter"
@@ -15,7 +14,8 @@ interface LevelUpModalProps {
 }
 
 export function LevelUpModal({ isOpen, onRequestClose }: LevelUpModalProps) {
-  const { level } = useContext(ChallengesContext)
+  const { level } = useChallenges()
+  Modal.setAppElement('body');
 
   return (
     <>
@@ -55,4 +55,8 @@ export function LevelUpModal({ isOpen, onRequestClose }: LevelUpModalProps) {
       </Modal>
     </>
   )
+}
+
+function componentWillMount() {
+  throw new Error("Function not implemented.");
 }

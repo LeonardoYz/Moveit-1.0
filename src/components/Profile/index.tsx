@@ -1,11 +1,11 @@
 import Image from "next/image"
-import { useContext } from "react";
-import { ChallengesContext } from "../../context/ChallengesContext";
+
+import { useChallenges } from "../../hooks/useChallenges";
 
 import { Container } from "./styles";
 
 export function Profile() {
-  const { level } = useContext(ChallengesContext);
+  const { level } = useChallenges();
 
   return (
     <Container>

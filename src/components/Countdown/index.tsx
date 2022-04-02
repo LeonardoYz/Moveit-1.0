@@ -1,12 +1,11 @@
 import Image from "next/image";
-import { useContext } from "react";
 import { IconContext } from "@react-icons/all-files";
-import { CountdownContext } from "../../context/CountdownContext";
 
 import { BsFillPlayFill } from "@react-icons/all-files/bs/BsFillPlayFill";
 import { CgClose } from "@react-icons/all-files/cg/CgClose";
 
 import { Container, AbandonBtn, InitialBtn, EndBtn } from "./styles";
+import { useCountdown } from "../../hooks/useCountdown";
 
 export function Countdown() {
   const {
@@ -16,7 +15,7 @@ export function Countdown() {
     isActive,
     resetCountdown,
     handleStartCountdown,
-  } = useContext(CountdownContext);
+  } = useCountdown();
 
   const [firstCharacterOfMinute, secondCharacterOfMinute] = String(minutes)
     .padStart(2, "0")

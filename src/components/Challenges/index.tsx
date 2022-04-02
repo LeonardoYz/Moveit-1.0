@@ -1,7 +1,6 @@
 import Image from "next/image";
-import { useContext } from "react";
-import { ChallengesContext } from "../../context/ChallengesContext";
-import { CountdownContext } from "../../context/CountdownContext";
+import { useChallenges } from "../../hooks/useChallenges";
+import { useCountdown } from "../../hooks/useCountdown";
 
 import {
   ActiveChallengeBox,
@@ -15,8 +14,9 @@ export function Challenges() {
     activeChallenge,
     resetChallenge,
     completeChallenge,
-  } = useContext(ChallengesContext);
-  const {resetCountdown} = useContext(CountdownContext)
+  } = useChallenges();
+  
+  const { resetCountdown } = useCountdown();
 
   function handleChallengeSucceeded() {
     completeChallenge()

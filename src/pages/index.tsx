@@ -7,13 +7,13 @@ import { Profile } from "../components/Profile";
 import { ChallengesCompleted } from "../components/ChallengesCompleted";
 import { Countdown } from "../components/Countdown";
 import { Challenges } from "../components/Challenges";
-import { ChallengesProvider } from "../context/ChallengesContext";
-import { CountdownProvider } from "../context/CountdownContext";
+import { ChallengesProvider } from "../hooks/useChallenges";
+import { CountdownProvider } from "../hooks/useCountdown";
+import { LevelUpModal } from "../components/LevelUpModal";
 import { HomeProps } from "../types";
 
 import { Container } from "../styles/Container";
 import { Content } from "../styles/Home";
-import { LevelUpModal } from "../components/LevelUpModal";
 
 export default function Home(props: HomeProps) {
   const [isLevelUpModalOpen, setLevelUpModalOpen] = useState(false)
